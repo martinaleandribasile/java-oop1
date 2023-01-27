@@ -34,8 +34,8 @@ public class Bank {
 				}else {
 					System.out.println("Inserisca la somma da ritirare (numeri decimali divisi dalla ,)");
 					double ritiroRichiesto = s.nextDouble();
-					double ritiro=newConto.ritira(ritiroRichiesto);
-					if(ritiro == newConto.saldo) {
+					boolean ritiroAvvenuto=newConto.ritira(ritiroRichiesto);
+					if(ritiroAvvenuto) {
 						System.out.println("Ora il suo saldo e' di : " + newConto.saldo + " euro");
 					}else {
 						System.out.println("mi dispiace non e' possibile effettuare un ritiro , la disponibilita' non e'sufficiente");

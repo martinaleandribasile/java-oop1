@@ -17,21 +17,23 @@ public class Prodotto {
 		this.descrizione = descrizione;
 		this.prezzo = prezzo;
 	}
-	public String printFullName() {
+	public String getFullName() {
 		String fullName= this.codice + this.nome;
 		return fullName;
 	}
 	
-	public double ivaPrice( ) {
+	public double getIvaPrice( ) {
 		double ivaPrice = this.prezzo + (this.prezzo * iva / 100);
 		return ivaPrice;
 	}
-	
-	public double price() {
+	public int getCodice() {
+		return this.codice;
+	}
+	public double getPrice() {
 		return this.prezzo;
 	}
 	
-	public int padCode() {
+	public int getPadCode() {
 		String stringCode = String.format("%08d",this.codice);
 		return this.codice= Integer.parseInt(stringCode);
 	}

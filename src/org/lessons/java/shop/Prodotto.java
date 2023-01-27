@@ -1,10 +1,9 @@
 package org.lessons.java.shop;
 
-import java.text.DecimalFormat;
+
 import java.util.Random;
 
 public class Prodotto {
-	private static final DecimalFormat round = new DecimalFormat("0.00");
 	int codice;
 	String nome;
 	String descrizione;
@@ -18,24 +17,23 @@ public class Prodotto {
 		this.descrizione = descrizione;
 		this.prezzo = prezzo;
 	}
-	public void printFullName(int codice, String nome) {
-		String fullName= codice + nome;
-		System.out.println("Full name = " + fullName); 
+	public String printFullName() {
+		String fullName= this.codice + this.nome;
+		return fullName;
 	}
 	
-	public void printivaPrice(double price) {
-		double ivaPrice = price + (price * iva / 100);
-		System.out.println("Prezzo con Iva =  " + round.format(ivaPrice) + " euro");
+	public double ivaPrice( ) {
+		double ivaPrice = this.prezzo + (this.prezzo * iva / 100);
+		return ivaPrice;
 	}
 	
-	public void printBasePrice(double price) {
-		System.out.println("Prezzo base Prodotto = "+round.format(price) + " euro");
+	public double price() {
+		return this.prezzo;
 	}
 	
-	public int padCode(int codice) {
-		String stringCode = String.format("%08d",codice);
-		System.out.printf("Codice con left pad -> " + String.format("%08d",codice));
-		return codice= Integer.parseInt(stringCode);
+	public int padCode() {
+		String stringCode = String.format("%08d",this.codice);
+		return this.codice= Integer.parseInt(stringCode);
 	}
 	
 	

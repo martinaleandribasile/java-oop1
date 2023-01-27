@@ -33,15 +33,16 @@ public class Bank {
 					operazione= operazioni(operazione);
 				}else {
 					System.out.println("Inserisca la somma da ritirare (numeri decimali divisi dalla ,)");
-					double ritiro = s.nextDouble();
-					if( ritiro > newConto.saldo) {
-						System.out.println("mi dispiace non e' possibile effettuare un ritiro , la disponibilita' non e'sufficiente");
-						operazione= operazioni(operazione);
+					double ritiroRichiesto = s.nextDouble();
+					double ritiro=newConto.ritira(ritiroRichiesto);
+					if(ritiro == newConto.saldo) {
+						System.out.println("Ora il suo saldo e' di : " + newConto.saldo + " euro");
 					}else {
-						newConto.ritira(ritiro);
-						 System.out.println("Ora il suo saldo e' di : " + newConto.saldo + " euro");
-						operazione= operazioni(operazione);
+						System.out.println("mi dispiace non e' possibile effettuare un ritiro , la disponibilita' non e'sufficiente");
 					}
+					operazione= operazioni(operazione);
+					
+					
 				}
 			}else {
 				System.out.println("Mi dispiace la sua richiesta non e' valida riprovi:");

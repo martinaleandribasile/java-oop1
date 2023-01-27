@@ -20,8 +20,13 @@ public class Conto {
 	 }
 	 
 	 public double ritira(double value) {
-		 this.saldo -= value;
-		 return this.saldo;
+		 if(value>this.saldo) {
+			 return -1;
+		 }else {
+			 this.saldo -= value;
+			 return this.saldo; 
+		 }
+		
 	 }
 	
 }
